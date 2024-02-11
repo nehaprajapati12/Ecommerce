@@ -1,0 +1,159 @@
+<style>
+    .main-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+
+    .content-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .product-container {
+        flex-basis: 48%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product-info {
+        margin-top: 20px;
+    }
+
+    .product-description {
+        line-height: 1.6;
+    }
+
+    .price {
+        color: #4CAF50;
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+
+    .detail-button {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .detail-button:hover {
+        background-color: #45a049;
+    }
+
+
+    .payment-button {
+        display: inline-block;
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+    }
+
+    .payment-button:hover {
+        background-color: #0056b3;
+    }
+   
+
+    /* Style for the payment form, initially set to display: none; */
+    .payment-form {
+        display: none;
+        margin-top: 20px;
+    }
+</style>
+
+
+<div class="main-container">
+    <div class="content-container">
+
+        <img class="product-image" src="https://petapixel.com/assets/uploads/2017/03/product_feat.jpg"
+            alt="Product Image">
+        <div class="product-info">
+            <h2>Product Name</h2>
+            <p class="product-description">
+                This is a brief description of the product. Provide details about its features, benefits, and
+                any other relevant information that will help potential buyers.
+            </p>
+            <p class="price">$99.99</p>
+            <a href="#" class="detail-button" onclick="showOrderDetails()"> Show Order Details</a>
+            <a href="#" class="payment-button" onclick="paynow()">Proceed to Payment</a>
+             Payment Form
+            <form class="payment-form" id="paymentForm">
+                <!-- Add your payment form fields and styling here -->
+                <!-- For example, credit card number, expiration date, CVV, etc. -->
+                <!-- You can use a third-party payment library or your own form elements -->
+                <input type="text" id="creditCardNumber" placeholder="Credit Card Number">
+                <input type="text" id="expirationDate" placeholder="Expiration Date">
+                <input type="text" id="cvv" placeholder="CVV">
+                <button type="button" onclick="processPayment()">Submit Payment</button>
+            </form>
+
+
+            <h3 onclick="showOrderDetails()"><span id="order-detail"></span></h3>
+            <p onclick="showOrderDetails()"><span id="product-name"></span></p>
+            <p> <span id="product-price"></span></p>
+            <p onclick="showOrderDetails()"> <span id="delivery-date"></span></p>
+
+        </div>
+    </div>
+
+    <script>
+        function showOrderDetails() {
+
+            // Calculate delivery date (assuming 4 days from the current date)
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 4);
+
+            // Display order details
+
+            
+            document.getElementById('product-name').innerHTML = 'Product: Addidas';
+            document.getElementById('product-price').innerHTML = ' Total Price: $99.99';
+            document.getElementById('order-detail').innerHTML = 'Order Details';
+            document.getElementById('delivery-date').textContent = ' Delivery Date:';
+            document.getElementById('delivery-date').textContent =  deliveryDate.toDateString();
+        }
+
+
+        function paynow() {
+            // Add your payment processing logic here
+            alert('Redirecting to payment gateway...');
+            // You can replace the alert with your actual payment processing code.
+        }
+        function paynow() {
+            // Toggle the visibility of the payment form
+            var paymentForm = document.getElementById('paymentForm');
+            paymentForm.style.display = paymentForm.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function processPayment() {
+            // Add your payment processing logic here
+            alert('Processing payment...');
+            // You can replace the alert with your actual payment processing code.
+
+            document.getElementById('creditCardNumber').value = '';
+        document.getElementById('expirationDate').value = '';
+        document.getElementById('cvv').value = '';
+
+        // Hide the payment form
+        paynow();
+        }
+    </script> 
