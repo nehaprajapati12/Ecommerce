@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        .main-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-container {
+            flex-basis: 48%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-info {
+            margin-top: 20px;
+        }
+
+        .product-description {
+            line-height: 1.6;
+        }
+
+        .price {
+            color: #4CAF50;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .detail-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .detail-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="content-container">
+            <div class="product-container">
+                <img class="product-image" src="https://www.naturaldiamonds.com/wp-content/uploads/2021/02/Hero-banner-1200x1200-2.png"
+                    alt="Product Image">
+                <div class="product-info">
+                    <h2>Product Name</h2>
+                    <p class="product-description">
+                        Last-minute gifts don’t have to look like last-minute gifts. celebrating a seasoned moment of
+                        love,
+                        sure to light up your
+                        darling’s face like a starry night.
+                    </p>
+                    <p class="price">$99.99</p>
+                    <a href="#" class="detail-button" onclick="showOrderDetails('viewDetails')">Show Order Details</a>
+                    <a href="addTocard.html" class="detail-button" onclick="addToCart()">Add To Cart</a>
+                    <a href="#" class="detail-button" onclick="paynow()">Pay Now</a>
+
+                    <h3><span id="order-detail"></span></h3>
+                    <p><span id="product-name"></span></p>
+                    <p><span id="product-price"></span></p>
+                    <p><span id="delivery-date"></span></p>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div>
+
+    <script>
+        function showOrderDetails(action) {
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 4);
+
+            if (action === 'viewDetails') {
+                document.getElementById('product-name').innerHTML = 'Product: diamond Jewellery';
+                document.getElementById('product-price').innerHTML = 'Total Price: $199.99';
+                document.getElementById('order-detail').innerHTML = 'Order Details';
+                document.getElementById('delivery-date').textContent = 'Delivery Date: ' + deliveryDate.toDateString();
+            }
+        }
+
+        function addToCart() {
+            // Logic to add the product to the cart
+            alert('Product added to cart!');
+        }
+        
+    </script>
+
+</body>
+
+</html>

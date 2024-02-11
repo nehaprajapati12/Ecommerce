@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #4caf8e;
+            color: white;
+        }
+
+        .navbar-toggle {
+            display: none;
+        }
+
+        #main-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .product-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product-info {
+            margin-top: 10px;
+        }
+
+        .product-image {
+            width: 100%;
+            /* Set the width to 100% to make the image responsive within its container */
+            height: 150px;
+            /* Set a fixed height for all images */
+            object-fit: cover;
+            /* Maintain the aspect ratio and cover the entire container */
+        }
+
+        #order-details {
+            display: none;
+        }
+
+        /* 
+        .product-info {
+            margin-top: 20px;
+        } */
+
+        /* .product-description {
+            line-height: 1.6;
+        } */
+
+        .price {
+            color: #4CAF50;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .buy-button {
+            display: inline-block;
+            background-color: #d65d2d;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #45a049;
+        }
+
+        /* ------------------------------------- */
+        #order-details1 {
+            display: none;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        #order-details1 h3 {
+            color: #333;
+        }
+
+        #order-details1 p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+
+        /*---------------------------------*/
+
+        #order-details2 {
+            display: none;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        #order-details2 h3 {
+            color: #333;
+        }
+
+        #order-details2 p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+
+        /*--------------------------------------*/
+
+
+        #order-details3 {
+            display: none;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        #order-details3 h3 {
+            color: #333;
+        }
+
+        #order-details3 p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 1600px) {
+            .navbar a.icon {
+
+                display: none;
+            }
+        }
+
+
+        @media screen and (max-width: 1200px) {
+            .navbar a.icon {
+
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar a:not(:first-child) {
+                display: none;
+            }
+
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+
+            .navbar.responsive a.icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .navbar.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            #main-container {
+                grid-template-columns: 1fr;
+
+            }
+        }
+
+
+        @media only screen and (max-width:600px) {
+            .main-container {
+                flex-direction: column;
+            }
+        }
+
+        @media only screen and (max-width:1200px) {
+            .navbar a.icon {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar" id="myNavbar">
+        <a href="#" class="active">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#">Sign Up</a>
+        <a href="addTocard.html">addToCart</a>
+        <a href="#" class="icon" onclick="myFunction()">
+            &#9776;
+        </a>
+        
+    </div>
+
+    <div id="main-container">
+        <div class="content-container">
+            <div class="product-container">
+                <img class="product-image" src="https://petapixel.com/assets/uploads/2017/03/product_feat.jpg"
+                    alt="Product Image">
+                <div class="product-info">
+                    <h2>Addidas </h2>
+                    <p class="product-description">
+                        This is a brief description of the product. Provide details about its features, benefits, and
+                        any other relevant information that will help potential buyers.
+                    </p>
+                    <p class="price">$99.99</p>
+                    <a href="shoes.html" class="buy-button" onclick="showOrderDetails1()">Buy Now</a>
+                </div>
+
+            </div>
+
+            <div id="order-details1" style="display: none;">
+                <img class="product-image" src="https://petapixel.com/assets/uploads/2017/03/product_feat.jpg"
+                    alt="Product Image">
+
+                <h3>Order Details </h3>
+                <p>Product: Addidas</p>
+                <p>Total Price: $99.99</p>
+                <p>Delivery Date: <span id="delivery-date1"></span></p>
+            </div>
+
+        </div>
+
+
+        <div class="content-container">
+
+            <div class="product-container">
+                <img class="product-image"
+                    src="https://www.naturaldiamonds.com/wp-content/uploads/2021/02/Hero-banner-1200x1200-2.png"
+                    alt="Product Image">
+                <div class="product-info">
+                    <h2>diamond Jewellery </h2>
+                    <p class="product-description">
+                        Last-minute gifts don’t have to look like last-minute gifts. celebrating a seasoned moment of
+                        love,
+                        sure to light up your
+                        darling’s face like a starry night.
+                    </p>
+                    <p class="price">$199.99</p>
+                    <a href="dimaondJwellory.html" class="buy-button" onclick="showOrderDetails2()">Buy Now</a>
+                </div>
+            </div>
+
+
+            <div id="order-details2" style="display: none;">
+                <img class="product-image"
+                    src="https://www.naturaldiamonds.com/wp-content/uploads/2021/02/Hero-banner-1200x1200-2.png"
+                    alt="Product Image">
+
+                <h3>Order Details </h3>
+                <p>Product: diamond Jewellery</p>
+                <p>Total Price: $199.99</p>
+                <p>Delivery Date: <span id="delivery-date2"></span></p>
+            </div>
+        </div>
+
+
+        <div class="content-container">
+
+            <div class="product-container">
+
+                <img class="product-image" src="https://m.media-amazon.com/images/I/51WPwFoukUL.AC.jpg"
+                    alt="Product Image">
+                <div class="product-info">
+                    <h2>Bangles </h2>
+                    <p class="product-description">
+                        Jewar Bangles Leaf/Patti Design 2 Piece Kada Set Gold Plated Daily Use Handmade Work Jewelry for
+                        Women & Girls (2.8 Size)
+                    </p>
+                    <p class="price">$177</p>
+                    <a href="bangles.html" class="buy-button" onclick="showOrderDetails3()">Buy Now</a>
+                </div>
+            </div>
+
+            <div id="order-details3" style="display: none;">
+                <img class="product-image" src="https://m.media-amazon.com/images/I/51WPwFoukUL.AC.jpg"
+                    alt="Product Image">
+
+                <h3>Order Details </h3>
+                <p>Product: Bangles</p>
+                <p>Total Price: $177</p>
+                <p>Delivery Date: <span id="delivery-date3"></span></p>
+            </div>
+        </div>
+
+
+        <div class="content-container">
+            <div class="product-container">
+                <img class="product-image"
+                    src="https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw34d84041/images/Titan/Catalog/1698KM02_1.jpg?sw=800&sh=800"
+                    alt="Product Image">
+                <div class="product-info">
+                    <h2>Watch </h2>
+                    <p class="product-description">
+                        Titan Black and Gold Black Dial Quartz Multifunction Stainless Steel Strap watch for Men.
+                    </p>
+                    <p class="price">$60</p>
+                    <a href="watch.html" class="buy-button" onclick="showOrderDetails4()">Buy Now</a>
+                </div>
+
+            </div>
+
+            <div id="order-details4" style="display: none;">
+                <img class="product-image"
+                    src="https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw34d84041/images/Titan/Catalog/1698KM02_1.jpg?sw=800&sh=800"
+                    alt="Product Image">
+
+                <h3>Order Details </h3>
+                <p>Watch</p>
+                <p>Total Price: $60</p>
+                <p>Delivery Date: <span id="delivery-date4"></span></p>
+            </div>
+
+        </div>
+
+        <div class="content-container">
+
+            <div class="product-container">
+                <img class="product-image"
+                    src="https://images.pexels.com/photos/1667071/pexels-photo-1667071.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Product Image">
+                <div class="product-info">
+                    <h2>Product </h2>
+                    <p class="product-description">
+                        As you know, Pexels has been part of Canva since 2019 and this change will allow us to
+                        
+                        Pexels will continue to look, feel and be called, Pexels.
+                    </p>
+                    <p class="price">$190.99</p>
+                    <a href="Product.html" class="buy-button" onclick="showOrderDetails5()">Buy Now</a>
+                </div>
+            </div>
+
+
+            <div id="order-details5" style="display: none;">
+                <img class="product-image"
+                    src="https://images.pexels.com/photos/1667071/pexels-photo-1667071.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Product Image">
+
+                <h3>Order Details </h3>
+                <p>Product: Product</p>
+                <p>Total Price: $190.99</p>
+                <p>Delivery Date: <span id="delivery-date5"></span></p>
+            </div>
+        </div>
+
+        <div class="content-container">
+
+            <div class="product-container">
+
+                <img class="product-image" src="https://images.meesho.com/images/products/36018349/ypp93_256.webp"
+                    alt="Product Image">
+                <div class="product-info">
+                    <h2>Women dress </h2>
+                    <p class="product-description">
+                        Grown is very good but,my costumer have got used product ?
+
+                    </p>
+                    <p class="price">$157</p>
+                    <a href="womenDress.html" class="buy-button" onclick="showOrderDetails6()">Buy Now</a>
+                </div>
+            </div>
+
+            <div id="order-details6" style="display: none;">
+                <img class="product-image" src="https://images.meesho.com/images/products/36018349/ypp93_256.webp"
+                    alt="Product Image">
+
+                <h3>Order Details </h3>
+                <p>Product: Women dress</p>
+                <p>Total Price: $157</p>
+                <p>Delivery Date: <span id="delivery-date6"></span></p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- ---------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <p>&copy; 2024 Your Website. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                Service</a></p>
+    </div>
+
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myNavbar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar";
+            }
+        }
+
+        function showOrderDetails1() {
+
+            // Hide all product details
+            let productContainers = document.querySelectorAll('.product-container');
+            productContainers.forEach(function (container) {
+                container.style.display = 'none';
+            });
+            // Calculate delivery date (assuming 4 days from the current date)
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 4);
+
+            // Display order details
+            document.getElementById('order-details1').style.display = 'block';
+            document.getElementById('delivery-date1').textContent = deliveryDate.toDateString();
+        }
+
+
+        function showOrderDetails2() {
+
+           
+            let productContainers = document.querySelectorAll('.product-container');
+            productContainers.forEach(function (container) {
+                container.style.display = 'none';
+            });
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 4);
+
+            document.getElementById('order-details2').style.display = 'block';
+            document.getElementById('delivery-date2').textContent = deliveryDate.toDateString();
+        }
+
+        function showOrderDetails3() {
+
+            let productContainers = document.querySelectorAll('.product-container');
+            productContainers.forEach(function (container) {
+                container.style.display = 'none';
+            });
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 4);
+
+            document.getElementById('order-details3').style.display = 'block';
+            document.getElementById('delivery-date3').textContent = deliveryDate.toDateString();
+        }
+
+
+
+        function showOrderDetails4() {
+
+            let productContainers = document.querySelectorAll('.product-container');
+            productContainers.forEach(function (container) {
+                container.style.display = 'none';
+            });
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 4);
+
+            document.getElementById('order-details4').style.display = 'block';
+            document.getElementById('delivery-date4').textContent = deliveryDate.toDateString();
+        }
+
+
+        function showOrderDetails5() {
+
+            let productContainers = document.querySelectorAll('.product-container');
+            productContainers.forEach(function (container) {
+                container.style.display = 'none';
+            });
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 4);
+
+            document.getElementById('order-details5').style.display = 'block';
+            document.getElementById('delivery-date5').textContent = deliveryDate.toDateString();
+        }
+
+
+
+        function showOrderDetails6() {
+
+            let productContainers = document.querySelectorAll('.product-container');
+            productContainers.forEach(function (container) {
+                container.style.display = 'none';
+            });
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 4);
+
+            document.getElementById('order-details6').style.display = 'block';
+            document.getElementById('delivery-date6').textContent = deliveryDate.toDateString();
+        }
+
+
+    </script>
+
+</body>
+
+</html>
